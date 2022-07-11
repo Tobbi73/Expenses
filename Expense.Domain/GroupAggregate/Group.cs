@@ -53,13 +53,13 @@ namespace Expense.Domain.GroupAggregate
                     {
                         payingMember.UpdateBalance(amountToRecieve);
                         receivingMember.UpdateBalance(-amountToRecieve);
-                        payingMember.AddPayment(DateTime.Now, amountToPay - amountToRecieve, paymentNote, receivingMember.Id);
+                        payingMember.AddPayment(DateTime.Now, amountToPay - amountToRecieve, paymentNote, receivingMember);
                         continue;
                     }
 
                     payingMember.UpdateBalance(amountToPay);
                     receivingMember.UpdateBalance(-amountToPay);
-                    payingMember.AddPayment(DateTime.Now, amountToPay, paymentNote, payingMember.Id);
+                    payingMember.AddPayment(DateTime.Now, amountToPay, paymentNote, receivingMember);
                 }
             }
         }

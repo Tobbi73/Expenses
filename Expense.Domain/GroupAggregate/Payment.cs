@@ -8,14 +8,14 @@ namespace Expense.Domain.GroupAggregate
         private DateTime _date;
         private decimal _amount;
         private string _note;
-        private int _toMemberId;
+        private Member _toMember;
 
         public PaymentStatus PaymentStatus { get; private set; }
         private int _paymentStatusId;
 
         protected Payment() { }
 
-        public Payment(DateTime date, decimal amount, string note, int toMemberId)
+        public Payment(DateTime date, decimal amount, string note, Member toMember)
         {
             if (amount <= 0)
             {
@@ -25,7 +25,7 @@ namespace Expense.Domain.GroupAggregate
             _date = date;
             _amount = amount;
             _note = note;
-            _toMemberId = toMemberId;
+            _toMember = toMember;
 
             _paymentStatusId = PaymentStatus.Initiated.Id;
         }

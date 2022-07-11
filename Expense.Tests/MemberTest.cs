@@ -63,14 +63,14 @@ namespace Expense.Tests
         public void Create_payment_success()
         {
             //Arrange    
-            var fakeMemberId = 2;
+            var fakeMember = new Member("fakeName");
 
             var amount = 999;
             var note = "fakeNote";
             var date = DateTime.Now;
 
             //Act 
-            var fakePayment = new Payment(date, amount, note, fakeMemberId);
+            var fakePayment = new Payment(date, amount, note, fakeMember);
 
             //Assert
             Assert.NotNull(fakePayment);
@@ -80,14 +80,14 @@ namespace Expense.Tests
         public void Create_payment_invalid_params()
         {
             //Arrange    
-            var fakeMemberId = 2;
+            var fakeMember = new Member("fakeName");
 
             var amount = -999;
             var note = "fakeNote";
             var date = DateTime.Now;
 
             //Act - Assert
-            Assert.Throws<ExpenseDomainException>(() => new Payment(date, amount, note, fakeMemberId));
+            Assert.Throws<ExpenseDomainException>(() => new Payment(date, amount, note, fakeMember));
 
         }
     }

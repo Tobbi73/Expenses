@@ -66,7 +66,7 @@ namespace Expense.Tests
             var member2 = group.Members.ElementAt(1);
 
             //Act
-            member1.AddPayment(DateTime.Now, amount, "fakenote", member2.Id);
+            member1.AddPayment(DateTime.Now, amount, "fakenote", member2);
             member1.Payments.Last().SetPaidStatus();
             
             member1.UpdateBalance(amount);

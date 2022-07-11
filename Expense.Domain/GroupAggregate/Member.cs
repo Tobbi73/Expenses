@@ -31,9 +31,9 @@ namespace Expense.Domain.GroupAggregate
             _expenses.Add(new ExpenseItem(DateTime.Now, description, amount));
         }
 
-        public void AddPayment(DateTime date, decimal amount, string note, int toMemberId)
+        public void AddPayment(DateTime date, decimal amount, string note, Member toMember)
         {
-            _payments.Add(new Payment(date, amount, note, toMemberId));
+            _payments.Add(new Payment(date, amount, note, toMember));
         }
 
         public void UpdateBalance(decimal amount)
